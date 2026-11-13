@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light dark">
+    <title>Use Google AI Mode? — Settings</title>
+    <link rel="stylesheet" href="options.css">
+    <script src="options.js" defer></script>
+  </head>
+  <body>
+    <main>
+      <header class="intro">
+        <img src="../icons/icon-48.png" alt="" width="38" height="38">
+        <div>
+          <h1>Use Google AI Mode?</h1>
+          <p>Choose when a Google search should open AI Mode.</p>
+        </div>
+      </header>
+
+      <form id="settings-form">
+        <div class="setting">
+          <label for="trigger">Trigger text</label>
+          <input id="trigger" name="trigger" type="text" maxlength="64" required autocomplete="off" spellcheck="false" aria-describedby="trigger-hint">
+          <p class="hint" id="trigger-hint">Literal text, matched without regard to capitalization. Default: <code>?</code></p>
+        </div>
+
+        <fieldset class="setting">
+          <legend>Where should the trigger appear?</legend>
+          <div class="choice-row">
+            <label class="choice"><input type="radio" name="position" value="prefix"><span>Prefix</span></label>
+            <label class="choice"><input type="radio" name="position" value="suffix" checked><span>Suffix</span></label>
+            <label class="choice"><input type="radio" name="position" value="anywhere"><span>Anywhere</span></label>
+          </div>
+          <p class="hint">Anywhere matches text inside words too. Avoid common strings.</p>
+        </fieldset>
+
+        <label class="checkbox-row">
+          <input type="checkbox" id="remove-trigger">
+          <span>
+            <strong>Remove trigger from Google search</strong>
+            <small>Helpful for keywords like <code>ai:</code>. Off by default to preserve the original query.</small>
+          </span>
+        </label>
+
+        <section class="preview" aria-label="Example search">
+          <span class="eyebrow">Example</span>
+          <p class="sample"><code id="example-search">why is the sky blue?</code></p>
+          <p class="hint" id="example-destination">Opens Google AI Mode</p>
+        </section>
+
+        <div class="actions">
+          <button type="submit" id="save-button">Save preferences</button>
+          <button type="button" class="secondary" id="reset-button">Restore defaults</button>
+        </div>
+        <p id="status" role="status" aria-live="polite"></p>
+      </form>
+
+      <footer>Only Google Search navigations are checked. No data is collected or transmitted by the extension.</footer>
+    </main>
+  </body>
+</html>
