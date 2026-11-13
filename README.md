@@ -15,7 +15,7 @@ By default, simply add a question mark to the end of a search.
 
 ## Customize the trigger
 
-Open **Firefox → Add-ons and themes → Use Google AI Mode? → Preferences** to change the behavior.
+Open Firefox → Add-ons and themes → Use Google AI Mode? → Preferences to change the behavior.
 
 - **Trigger text:** Any literal string, such as `?`, `ai:`, or `!ai`
 - **Position:** Prefix, suffix, or anywhere in the search query
@@ -33,7 +33,7 @@ For example, set the trigger to `ai:` with *Prefix* matching and trigger removal
 - Stores preferences locally in Firefox with `browser.storage.local`.
 - Doesn't inject scripts into Google or collect data.
 
-This is an **independent, open-source extension**, not affiliated with Google.
+This is an independent, open-source extension, not affiliated with Google.
 
 ## License
 
