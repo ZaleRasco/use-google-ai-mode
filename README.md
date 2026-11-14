@@ -1,21 +1,22 @@
 # Use Google AI Mode?
 
-A lightweight Firefox extension that opens Google AI Mode when your search matches a customizable trigger. All other searches use regular Google Search.
+A lightweight Firefox and Chrome extension that opens Google AI Mode when your search matches a customizable trigger. All other searches use regular Google Search.
 
 By default, simply add a question mark to the end of a search.
 
-| Search from Firefox's address bar | Result |
+| Search from your browser's address bar | Result |
 | --- | --- |
 | `why is the sky blue?` | Google AI Mode |
 | `why is the sky blue` | Regular Google Search |
 | `best restaurants near me?` | Google AI Mode |
 | `best restaurants near me` | Regular Google Search |
 
-**[Get it on Firefox Add-ons](https://addons.mozilla.org/en-US/firefox/addon/use-google-ai-mode/)**
+**[Get it on Firefox Add-ons](https://addons.mozilla.org/en-US/firefox/addon/use-google-ai-mode/)**  
+Chrome Web Store: submitted for review.
 
 ## Customize the trigger
 
-Open Firefox → Add-ons and themes → Use Google AI Mode? → Preferences to change the behavior.
+Open your browser's extension preferences (Firefox → Add-ons and themes → Preferences; Chrome → Extensions → Details → Extension options) to change the behavior.
 
 - **Trigger text:** Any literal string, such as `?`, `ai:`, or `!ai`
 - **Position:** Prefix, suffix, or anywhere in the search query
@@ -29,9 +30,11 @@ For example, set the trigger to `ai:` with *Prefix* matching and trigger removal
 ## Privacy and technical details
 
 - Only intercepts top-level HTTPS Google Search navigations on `google.com` and `www.google.com`.
-- Uses Firefox's `webRequest.onBeforeRequest` API to route matching searches before the regular results page loads.
-- Stores preferences locally in Firefox with `browser.storage.local`.
+- Firefox uses `webRequest.onBeforeRequest`; Chrome uses `declarativeNetRequest` to route matching searches before the regular results page loads.
+- Stores preferences locally in each browser (`browser.storage.local` / `chrome.storage.local`).
 - Doesn't inject scripts into Google or collect data.
+
+The repository root contains the Firefox source; the [`chrome/`](chrome/) directory contains the Chrome source and tests.
 
 This is an independent, open-source extension, not affiliated with Google.
 
